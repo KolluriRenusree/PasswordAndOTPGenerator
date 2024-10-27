@@ -1,8 +1,6 @@
 import java.util.Random;
 
 public class PasswordAndOTPGenerator {
-
-    // Method to generate a random password
     public static String generatePassword(int length) {
         String capitalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String smallChars = "abcdefghijklmnopqrstuvwxyz";
@@ -11,31 +9,24 @@ public class PasswordAndOTPGenerator {
 
         String values = capitalChars + smallChars + numbers + symbols;
         Random random = new Random();
-
         StringBuilder password = new StringBuilder();
         for (int i = 0; i < length; i++) {
             password.append(values.charAt(random.nextInt(values.length())));
         }
         return password.toString();
     }
-
-    // Method to generate a random OTP of specified length
     public static String generateOTP(int length) {
         String numbers = "0123456789";
         Random random = new Random();
-
         StringBuilder otp = new StringBuilder();
         for (int i = 0; i < length; i++) {
             otp.append(numbers.charAt(random.nextInt(numbers.length())));
         }
         return otp.toString();
     }
-
     public static void main(String[] args) {
         int passwordLength = 10;
         int otpLength = 4;
-
-        // Generate and display a password
         String password = generatePassword(passwordLength);
         System.out.println("Generated Password: " + password);
 
